@@ -1,0 +1,31 @@
+Título do Projeto
+
+fitNegs - Gerenciador de Atividades Físicas
+
+
+
+Descrição do Projeto
+
+O projeto "FitTrack - Gerenciador de Atividades Físicas" é uma aplicação desenvolvida em Python que tem como 
+objetivo auxiliar os usuários a acompanhar e gerenciar suas atividades físicas diárias. Através do sistema, 
+os usuários podem registrar diferentes tipos de atividades, como caminhadas, corridas, exercícios na academia, 
+entre outros.
+
+O projeto utiliza um banco de dados MySQL para armazenar as informações das atividades, como data, duração, 
+calorias queimadas e descrição. Os usuários podem visualizar suas atividades registradas, realizar consultas
+personalizadas, atualizar informações e também excluir atividades.
+
+Além disso, o projeto inclui funcionalidades para calcular estatísticas e fornecer um resumo das atividades
+realizadas pelos usuários, como o total de calorias queimadas em um período específico ou a média de duração
+das atividades.
+
+A interface com o usuário será desenvolvida posteriormente, visando oferecer uma experiência intuitiva e 
+amigável, permitindo que os usuários interajam com o sistema de forma fácil e eficiente.
+
+
+
+Objetivo do Projeto
+
+Desenvolver conhecimento sobre banco de dados MySQL.
+Oportunidade de aprimorar habilidades em banco de dados, manipulação de dados, cálculos estatísticos e 
+interface com o usuário, além de ganhar experiência prática em um projeto completo do início ao fim.
