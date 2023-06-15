@@ -1,1 +1,2 @@
 CREATE DATABASE Gerenciador_de_Atividades_Fisicas;
+
