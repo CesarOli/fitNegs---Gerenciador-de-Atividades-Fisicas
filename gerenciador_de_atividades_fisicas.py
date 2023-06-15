@@ -1,5 +1,6 @@
 import mysql.connector
 from time import sleep
+
 config = { 
     'host': 'localhost',
     'user': 'CesarOli',
@@ -15,5 +16,7 @@ if conectar.is_connected():
 else:
     sleep(2)
     print('Falha na conexão.')
+
+cursor = conectar.cursor()
 
 conectar.close()
