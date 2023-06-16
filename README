@@ -33,5 +33,8 @@ interface com o usuário, além de ganhar experiência prática em um projeto co
 Aprendizados
 
 - Criação de banco de dados;
-- Utilização do banco de dados criado;
-- Criação de Tabela;
+- Uso da bibliotea de importação do banco de dados;
+- Configuração do banco de dados
+- Conexão ao banco de dados criado;
+- Encerramento da conexção ao banco de dados
+ 
