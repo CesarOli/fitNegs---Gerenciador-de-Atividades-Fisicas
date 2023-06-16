@@ -17,18 +17,14 @@ else:
     sleep(2)
     print('Falha na conexão.')
 
-cursor = conectar.cursor()
+def dadosDasAtividades()
+    atividade = input('Informe a atividade praticada: ')
+    tempo = input('Informe o tempo de duração desta atividade (HH:MM) : ')
+    distancia = float(input('Informe a distancia percorrida nesta atividade: '))
+    calorias = int(input('Informe a quantidade de calorias queimadas nesta atividade: '))
+    data = input('Informe a data da atividade: ')
+    hora = input('Informe a hora em que você realizou esta atividade: ')
 
-cursor.execute('''
-    CREATE TABLE atividadesFisicas (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        atividade_fisica VARCHAR(150),
-        tempo_da_atividade TIME,
-        distancia DECIMAL(8,2),
-        calorias_queimadas INT,
-        data_da_atividade DATE,
-        hora_da_atividade TIME
-    )
-''')
+    return atividade, tempo, distancia, calorias, data, hora
 
 conectar.close()
