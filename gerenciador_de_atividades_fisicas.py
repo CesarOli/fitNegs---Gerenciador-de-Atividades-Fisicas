@@ -17,7 +17,14 @@ else:
     sleep(2)
     print('Falha na conexão.')
 
-def dadosDasAtividades()
+def tabelaExiste(conexao, tabela):
+    cursor = conexao.cursor()
+    cursor.execute(f'SHOW TABLES LIKES "{tabela}"')
+    resultado = cursor.fetchone()
+    cursor.close()
+    return resultado is not None
+    
+'''def dadosDasAtividades():
     atividade = input('Informe a atividade praticada: ')
     tempo = input('Informe o tempo de duração desta atividade (HH:MM) : ')
     distancia = float(input('Informe a distancia percorrida nesta atividade: '))
@@ -25,6 +32,6 @@ def dadosDasAtividades()
     data = input('Informe a data da atividade: ')
     hora = input('Informe a hora em que você realizou esta atividade: ')
 
-    return atividade, tempo, distancia, calorias, data, hora
+    return atividade, tempo, distancia, calorias, data, hora'''
 
 conectar.close()
