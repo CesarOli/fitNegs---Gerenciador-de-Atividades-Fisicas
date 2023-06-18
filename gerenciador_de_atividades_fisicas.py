@@ -8,14 +8,17 @@ config = {
     'database': 'Gerenciador_de_Atividades_Fisicas'
 }
 
-conectar = mysql.connector.connect(**config)
+conectar = None
 
-if conectar.is_connected():
-    sleep(2)
-    print('Conexão ao banco de dados realizada com sucesso.')
-else:
-    sleep(2)
-    print('Falha na conexão.')
+def conectarBancoDados():
+    global conectar
+    conectar = mysql.connector.connect(**config)
+    if conectar.is_connected():
+        sleep(2)
+        print('Conexão ao banco de dados realizada com sucesso.')
+    else:
+        sleep(2)
+        print('Falha na conexão.')
 
 def tabelaExiste(conexao, tabela):
     cursor = conexao.cursor()
@@ -41,9 +44,6 @@ def usarTabelaAtividades(conexao):
     ''')
     cursor.close()
 
-usarTabelaAtividades(conectar)
-
-    
 def dadosDasAtividades():
     atividade = input('Informe a atividade praticada: ')
     tempo = input('Informe o tempo de duração desta atividade (HH:MM) : ')
@@ -54,4 +54,21 @@ def dadosDasAtividades():
 
     return atividade, tempo, distancia, calorias, data, hora
 
-conectar.close()
+while True:
+    escolha = input('Deseja fazer conexão ao Banco de Dados? (S/N): ')
+    if escolha.upper() == 'S':
+        conectarBancoDados()
+        break
+    elif escolha.upper() == 'N':
+        break
+    else:
+        print('Opção inválida. Digite S para sim ou N para não.')
+
+if conectar:
+    usarTabelaAtividades(conectar)
+    atividade, tempo, distancia, calorias, data, hora = dadosDasAtividades()
+   
+    conectar.commit()
+
+if conectar:
+    conectar.close()
