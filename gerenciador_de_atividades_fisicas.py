@@ -44,16 +44,6 @@ def usarTabelaAtividades(conexao):
     ''')
     cursor.close()
 
-def dadosDasAtividades():
-    atividade = input('Informe a atividade praticada: ')
-    tempo = input('Informe o tempo de duração desta atividade (HH:MM) : ')
-    distancia = float(input('Informe a distancia percorrida nesta atividade: '))
-    calorias = int(input('Informe a quantidade de calorias queimadas nesta atividade: '))
-    data = input('Informe a data da atividade: ')
-    hora = input('Informe a hora em que você realizou esta atividade: ')
-
-    return atividade, tempo, distancia, calorias, data, hora
-
 while True:
     escolha = input('Deseja fazer conexão ao Banco de Dados? (S/N): ')
     if escolha.upper() == 'S':
@@ -67,7 +57,6 @@ while True:
 if conectar:
     usarTabelaAtividades(conectar)
     atividade, tempo, distancia, calorias, data, hora = dadosDasAtividades()
-   
     conectar.commit()
 
 if conectar:
