@@ -32,6 +32,11 @@ def criarTabelaAlunos(conexao):
     cursor.execute('CREATE TABLE IF NOT EXISTS Alunos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(150), idade INT, endereco VARCHAR(200), email VARCHAR(100))')
     cursor.close()
 
+def inclusaoColunaSexo(conexao):
+    cursor = conectar.cursor()
+    cursor.execute('ALTER TABLE Alunos ADD COLUMN sexo CARCHAR(1)')
+    cursor.close()
+
 def inserirAluno(conexao):
     cursor = conexao.cursor
     nome = input('Diga seu nome e sobrenome: ')
