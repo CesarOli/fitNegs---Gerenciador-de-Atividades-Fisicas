@@ -32,6 +32,25 @@ def criarTabelaAlunos(conexao):
     cursor.execute('CREATE TABLE IF NOT EXISTS Alunos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(150), idade INT, endereco VARCHAR(200), email VARCHAR(100))')
     cursor.close()
 
+def inserirAluno(conexao):
+    cursor = conexao.cursor
+    nome = input('Diga seu nome e sobrenome: ')
+    idade = input('Informe agora, a idade do seu aluno: ')
+    endereco = input('Diga também apenas a rua em que seu aluno mora: ')
+
+    while True: 
+        sexo = input('Informe o sexo do aluno (M/F): ').upper()
+        if sexo == 'M' or sexo == 'F':
+            break
+        else:
+            print('Opção inválida, digite M para masculino ou F para Feminino.')
+        
+        email = input('Digite o email do aluno: ')
+        
+        cursor.execute('INSERT INTO  Alunos (nome, idade, endereco, sexo, email) VALUES (%s, %s, %s, %s, %s)', (nome, idade, endereco, sexo, email))
+        conectar.commit()
+        cursor.close()
+
 while True:
     escolha = input('Deseja fazer conexão ao Banco de Dados? (S/N): ')
     if escolha.upper() == 'S':
@@ -41,7 +60,6 @@ while True:
         break
     else:
         print('Opção inválida. Digite S para sim ou N para não.')
-
 if conectar:
     criarTabelaAlunos(conectar)
     conectar.commit()
