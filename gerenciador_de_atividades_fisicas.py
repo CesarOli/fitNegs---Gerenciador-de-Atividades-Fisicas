@@ -27,21 +27,9 @@ def tabelaExiste(conexao, tabela):
     cursor.close()
     return resultado is not None
 
-def usarTabelaAtividades(conexao):
-    cursor = conectar.cursor()
-    cursor.execute('CREATE DATABASE IF NOT EXISTS Gerenciador_de_Atividades_Fisicas')
-    cursor.execute('USE Gerenciador_de_Atividades_Fisicas')
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS atividadesFisicas (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            atividade_fisica VARCHAR(150),
-            tempo_da_atividade TIME,
-            distancia DECIMAL(8,2),
-            calorias_queimadas INT,
-            data_da_atividade DATE,
-            hora_da_atividade TIME
-        )
-    ''')
+def criarTabelaAlunos(conexao):
+    cursor = conexao.cursor()
+    cursor.execute('CREATE TABLE IF NOT EXISTS Alunos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(150), idade INT, endereco VARCHAR(200), email VARCHAR(100))')
     cursor.close()
 
 while True:
@@ -55,8 +43,7 @@ while True:
         print('Opção inválida. Digite S para sim ou N para não.')
 
 if conectar:
-    usarTabelaAtividades(conectar)
-    atividade, tempo, distancia, calorias, data, hora = dadosDasAtividades()
+    criarTabelaAlunos(conectar)
     conectar.commit()
 
 if conectar:
