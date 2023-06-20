@@ -28,7 +28,6 @@ def tabelaExiste(conexao, tabela):
     return resultado is not None
 
 
-
 def criarTabelaAlunos(conexao):
     cursor = conexao.cursor()
     cursor.execute('CREATE TABLE IF NOT EXISTS Alunos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(150), idade INT, endereco VARCHAR(200), email VARCHAR(100))')
@@ -90,24 +89,13 @@ if conectar:
     while True:
         print('======= MENU DE OPÇÕES =======')
         print('1. Cadastrar Novo Aluno')
-        print('2. Visualizar Alunos Cadastrados')
-        print('3. Atualizar Alunos Cadastrados')
-        print('4. Deletar Aluno')
         print('0. Sair')
 
         opcao = input('Digite a opção desejada: ')
 
         if opcao == '1':
             inserirAluno(conectar)
-        elif opcao == '2':
-            #implementar
-            pass
-        elif opcao == '3':
-            #implementar
-            pass
-        elif opcao == '4':
-            #implementar
-            pass
+        
         elif opcao == '0':
             sleep(2.5)
             print('Saindo do programa...')
