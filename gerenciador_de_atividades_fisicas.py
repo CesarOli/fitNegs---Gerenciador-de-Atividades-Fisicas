@@ -27,12 +27,7 @@ def tabelaExiste(conexao, tabela):
     cursor.close()
     return resultado is not None
 
-def verificaColunaNaTabela(conexao, tabela, coluna):
-    cursor = conexao.cursor()
-    cursor.execute(f'SHOW COLUMNS FROM {tabela} LIKE %s', (coluna,))
-    resultado = cursor.fetchone()
-    cursor.close()
-    return resultado is not None
+
 
 def criarTabelaAlunos(conexao):
     cursor = conexao.cursor()
@@ -40,16 +35,29 @@ def criarTabelaAlunos(conexao):
     cursor.close()
 
 def inclusaoColunaSexo(conexao):
-    cursor = conectar.cursor()
-    cursor.execute('ALTER TABLE Alunos ADD COLUMN sexo VARCHAR(1)')
+    if not tabelaExiste(conexao, 'Alunos'):
+        cursor = conexao.cursor()
+        cursor.execute('ALTER TABLE Alunos ADD COLUMN sexo VARCHAR(1)')
+        cursor.execute('UPDATE Alunos SET verificado = TRUE')
+        cursor.close()
+        print('Coluna "sexo" adiciona com sucesso.')
+
+def verificaColunaNaTabela(conexao, tabela, *colunas):
+    cursor = conexao.cursor()
+    cursor.execute(f'SHOW COLUMNS FROM {tabela}')
+    colunaNaTabela = [coluna[0] for coluna in cursor.fetchall()]
     cursor.close()
 
+    for coluna in colunas:
+        if coluna not in colunaNaTabela:
+            return False
+    return True 
 
 def inserirAluno(conexao):
     cursor = conexao.cursor()
-    nome = input('Diga seu nome e sobrenome: ')
-    idade = input('Informe agora, a idade do seu aluno: ')
-    endereco = input('Diga também apenas a rua em que seu aluno mora: ')
+    nome = input('Diga o nome do Aluno que deseja cadastrar: ')
+    idade = input('Informe a idade do aluno: ')
+    endereco = input('Qual endereço do aluno, somente a rua:  ')
 
     while True: 
         sexo = input('Informe o sexo do aluno (M/F): ').upper()
