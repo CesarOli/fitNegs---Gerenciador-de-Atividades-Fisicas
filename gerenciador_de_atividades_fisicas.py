@@ -34,11 +34,11 @@ def criarTabelaAlunos(conexao):
 
 def inclusaoColunaSexo(conexao):
     cursor = conectar.cursor()
-    cursor.execute('ALTER TABLE Alunos ADD COLUMN sexo CARCHAR(1)')
+    cursor.execute('ALTER TABLE Alunos ADD COLUMN sexo VARCHAR(1)')
     cursor.close()
 
 def inserirAluno(conexao):
-    cursor = conexao.cursor
+    cursor = conexao.cursor()
     nome = input('Diga seu nome e sobrenome: ')
     idade = input('Informe agora, a idade do seu aluno: ')
     endereco = input('Diga também apenas a rua em que seu aluno mora: ')
@@ -50,11 +50,11 @@ def inserirAluno(conexao):
         else:
             print('Opção inválida, digite M para masculino ou F para Feminino.')
         
-        email = input('Digite o email do aluno: ')
+    email = input('Digite o email do aluno: ')
         
-        cursor.execute('INSERT INTO  Alunos (nome, idade, endereco, sexo, email) VALUES (%s, %s, %s, %s, %s)', (nome, idade, endereco, sexo, email))
-        conectar.commit()
-        cursor.close()
+    cursor.execute('INSERT INTO  Alunos (nome, idade, endereco, sexo, email) VALUES (%s, %s, %s, %s, %s)', (nome, idade, endereco, sexo, email))
+    conectar.commit()
+    cursor.close()
 
 while True:
     escolha = input('Deseja fazer conexão ao Banco de Dados? (S/N): ')
@@ -67,7 +67,38 @@ while True:
         print('Opção inválida. Digite S para sim ou N para não.')
 if conectar:
     criarTabelaAlunos(conectar)
+    inclusaoColunaSexo(conectar)
+    inserirAluno(conectar)
     conectar.commit()
+
+    while True:
+        print('======= MENU DE OPÇÕES =======')
+        print('1. Cadastrar Novo Aluno')
+        print('2. Visualizar Alunos Cadastrados')
+        print('3. Atualizar Alunos Cadastrados')
+        print('4. Deletar Aluno')
+        print('0. Sair')
+
+        opcao = input('Digite a opção desejada: ')
+
+        if opcao == '1':
+            inserirAluno(conectar)
+        elif opcao == '2':
+            #implementar
+            pass
+        elif opcao == '3':
+            #implementar
+            pass
+        elif opcao == '4':
+            #implementar
+            pass
+        elif opcao == '0':
+            sleep(2.5)
+            print('Saindo do programa...')
+            break
+        else:
+            sleep(1.5)
+            print('Oção inválida. Digite um número válido.')
 
 if conectar:
     conectar.close()
