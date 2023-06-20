@@ -27,6 +27,13 @@ def tabelaExiste(conexao, tabela):
     cursor.close()
     return resultado is not None
 
+def verificaColunaNaTabela(conexao, tabela, coluna):
+    cursor = conexao.cursor()
+    cursor.execute(f'SHOW COLUMNS FROM {tabela} LIKE %s', (coluna,))
+    resultado = cursor.fetchone()
+    cursor.close()
+    return resultado is not None
+
 def criarTabelaAlunos(conexao):
     cursor = conexao.cursor()
     cursor.execute('CREATE TABLE IF NOT EXISTS Alunos (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(150), idade INT, endereco VARCHAR(200), email VARCHAR(100))')
@@ -36,6 +43,7 @@ def inclusaoColunaSexo(conexao):
     cursor = conectar.cursor()
     cursor.execute('ALTER TABLE Alunos ADD COLUMN sexo VARCHAR(1)')
     cursor.close()
+
 
 def inserirAluno(conexao):
     cursor = conexao.cursor()
