@@ -6,29 +6,22 @@ fitNegs - Gerenciador de Atividades Físicas
 
 Descrição do Projeto
 
-O projeto "FitTrack - Gerenciador de Atividades Físicas" é uma aplicação desenvolvida em Python que tem como 
+O projeto "fitNegs - Gerenciador de Atividades Físicas" é uma aplicação desenvolvida em Python com o 
 objetivo auxiliar os usuários a acompanhar e gerenciar suas atividades físicas diárias. Através do sistema, 
 os usuários podem registrar diferentes tipos de atividades, como caminhadas, corridas, exercícios na academia, 
 entre outros.
 
-O projeto utiliza um banco de dados MySQL para armazenar as informações das atividades, como data, duração, 
-calorias queimadas e descrição. Os usuários podem visualizar suas atividades registradas, realizar consultas
-personalizadas, atualizar informações e também excluir atividades.
-
-Além disso, o projeto inclui funcionalidades para calcular estatísticas e fornecer um resumo das atividades
-realizadas pelos usuários, como o total de calorias queimadas em um período específico ou a média de duração
-das atividades.
-
-A interface com o usuário será desenvolvida posteriormente, visando oferecer uma experiência intuitiva e 
-amigável, permitindo que os usuários interajam com o sistema de forma fácil e eficiente.
-
-
+O projeto utiliza um banco de dados MySQL para armazenar as informações das atividades, como nome da atividade praticada, 
+tempo da atividade, distância percorrida se for o caso, calorias queimadas, data da atividade e horário em que 
+atividade foi realizada, além de armazenar os dados pessoais de casa usuário, como: nome, 
+idade, endereço, email e sexo. Informações coletadas no início do programa.
 
 Objetivo do Projeto
 
-Desenvolver conhecimento sobre banco de dados MySQL.
-Oportunidade de aprimorar habilidades em banco de dados, manipulação de dados, cálculos estatísticos e 
-interface com o usuário, além de ganhar experiência prática em um projeto completo do início ao fim.
+- Desenvolver conhecimento sobre banco de dados MySQL.
+- Oportunidade de aprimorar habilidades em banco de dados, criar tabelas e colunas.
+- Inserir e a manipular de dados das tabelas e colunas criadas;
+
 
 Aprendizados
 
@@ -37,4 +30,14 @@ Aprendizados
 - Configuração do banco de dados
 - Conexão ao banco de dados criado;
 - Encerramento da conexção ao banco de dados
- 
+- Criação de tabelas e colunas;
+- Inserção e manipulação de dados;
+
+
+Entrega: 
+Com os objetivos atingidos, criei um menu de opções, afim de proporcionar uma melhor experiência com o usuário,
+com funcionamento das opções: '1 - Cadastrar Alunos' e ' 5 - Sair'. 
+Outras funções de menu serão implementadas no futuro, no próximo projeto.
+
+LinkedIn:
+https://www.linkedin.com/in/cesaroliveira-python/
